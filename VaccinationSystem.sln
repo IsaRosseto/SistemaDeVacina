@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinationSystem", "VaccinationSystem\VaccinationSystem.csproj", "{6A742AFF-02EB-4E85-8B1E-E639993ACDEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinationApi", "VaccinationApi\VaccinationApi.csproj", "{AFF38F14-97EC-40F6-8053-AE6B01D54A60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A742AFF-02EB-4E85-8B1E-E639993ACDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A742AFF-02EB-4E85-8B1E-E639993ACDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A742AFF-02EB-4E85-8B1E-E639993ACDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A742AFF-02EB-4E85-8B1E-E639993ACDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF38F14-97EC-40F6-8053-AE6B01D54A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF38F14-97EC-40F6-8053-AE6B01D54A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF38F14-97EC-40F6-8053-AE6B01D54A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF38F14-97EC-40F6-8053-AE6B01D54A60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
