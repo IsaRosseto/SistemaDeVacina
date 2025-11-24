@@ -165,8 +165,8 @@ function App() {
         <div className="container">
             <header>
                 <div>
-                    <h1>🏥 VaxManager</h1>
-                    <p style={{color: '#6b7280', margin:0}}>Sistema Integrado de Controle Vacinal</p>
+                    <h1>BTVacina</h1>
+                    <p style={{color: '#6b7280', margin:0}}>Sistema Integrado de Controle Vacinal do BTG</p>
                 </div>
                 <div style={{display:'flex', gap: 10}}>
                     <button className="btn-danger" onClick={handleDeleteAll} disabled={isLoading}>🗑️ Resetar Tudo</button>
