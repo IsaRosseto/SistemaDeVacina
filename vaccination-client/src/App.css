@@ -1,45 +1,48 @@
-/* App.css - Estilo Executive Premium (Inspirado em BTG/Fintechs) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Paleta BTG Inspired */
+  /* Paleta Executive (Inspirada em Banco de Investimento) */
   --primary: #00204a;       /* Azul Marinho Profundo */
-  --primary-light: #003666; /* Azul um pouco mais claro para hover */
-  --accent: #c5a065;        /* Dourado/Bege sofisticado */
+  --primary-hover: #003666;
+  --accent: #c5a065;        /* Dourado/Bege Sofisticado */
   --accent-hover: #b08d55;
   
-  --bg-color: #f4f5f7;      /* Cinza executivo */
-  --card-bg: #ffffff;
+  --bg-body: #f4f5f7;       /* Fundo cinza executivo */
+  --bg-card: #ffffff;
   
-  --text-main: #1a1a1a;     /* Preto suave */
-  --text-muted: #666666;
-  --border: #e0e0e0;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
   
-  --success: #059669;
-  --danger: #dc2626;
+  --danger: #ef4444;
+  --danger-bg: #fee2e2;
   
-  /* Sombras mais elegantes e difusas */
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
-  
-  /* Raios menores para visual mais sério */
-  --radius: 4px; 
+  --radius: 4px; /* Bordas mais retas = mais sério/profissional */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Inter é muito usada em finanças */
-  background-color: var(--bg-color);
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-body);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* Container Principal */
+/* Container Responsivo Centralizado */
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 40px 30px;
+  width: 100%;
+  max-width: 1400px; /* Limite máximo para telas gigantes */
+  margin: 0 auto;    /* Centraliza na tela */
+  padding: 32px 24px;
 }
 
 /* Header */
@@ -48,230 +51,352 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-h1 {
+.brand h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--primary); /* Azul sólido em vez de gradiente passa mais seriedade */
-  letter-spacing: -0.5px;
+  color: var(--primary);
   margin: 0;
-  position: relative;
+  letter-spacing: -0.02em;
 }
 
-/* Detalhe sutil abaixo do título (marca registrada de design premium) */
-h1::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 3px;
-  background-color: var(--accent);
-  margin-top: 8px;
+.brand p {
+  color: var(--text-muted);
+  margin: 4px 0 0 0;
+  font-size: 0.875rem;
 }
 
-/* Cards */
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Cards Genéricos */
 .card {
-  background: var(--card-bg);
+  background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 32px; /* Mais espaçamento interno (respiro) */
   box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,0.03); /* Borda quase invisível */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow: hidden; /* Para cabeçalhos internos não vazarem */
 }
 
-.card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+.card-padding {
+  padding: 24px;
 }
 
-/* Layout de Grid */
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Grid Layout Principal */
 .grid-layout {
   display: grid;
-  grid-template-columns: 350px 1fr; /* Coluna fixa na esquerda para estabilidade */
-  gap: 32px;
+  grid-template-columns: 380px 1fr; /* Lateral fixa, resto flexível */
+  gap: 24px;
+  align-items: start;
 }
 
-/* Inputs e Selects */
-input, select {
-  width: 100%; /* Garante alinhamento */
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-  transition: all 0.2s;
-  background-color: #fff;
-  color: var(--text-main);
-  box-sizing: border-box; /* Importante para não quebrar layout */
+/* Coluna da Lista de Pessoas */
+.people-column {
+  height: 650px; /* Altura fixa no Desktop */
+  display: flex;
+  flex-direction: column;
 }
 
-input::placeholder {
-  color: #9ca3af;
-}
-
-input:focus, select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary); /* Foco sharp, sem blur */
-}
-
-/* Botões */
-button {
-  cursor: pointer;
-  padding: 12px 24px;
-  border-radius: var(--radius);
-  border: none;
+.people-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background-color: #f8fafc;
+  font-size: 0.875rem;
   font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase; /* Dá um ar mais técnico/corporativo */
-  letter-spacing: 0.5px;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: white;
-}
-.btn-primary:hover {
-  background-color: var(--primary-light);
-  box-shadow: 0 4px 12px rgba(0, 32, 74, 0.2);
-}
-
-/* Botão de Destaque (Estilo "Investir" ou "Confirmar") */
-.btn-accent {
-    background-color: var(--accent);
-    color: #fff;
-}
-.btn-accent:hover {
-    background-color: var(--accent-hover);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid #cbd5e1;
   color: var(--text-muted);
-}
-.btn-outline:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background-color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.btn-icon {
-  padding: 8px;
-  border-radius: var(--radius);
-  background: transparent;
-  color: var(--text-muted);
-  width: auto;
-}
-.btn-icon:hover {
-  color: var(--danger);
-  background: #fef2f2;
-}
-
-/* Lista de Pessoas (Estilo Dashboard Lateral) */
 .person-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 600px;
+  flex: 1;
   overflow-y: auto;
 }
 
-/* Scrollbar fina e elegante para Webkit */
+/* Scrollbar elegante */
 .person-list::-webkit-scrollbar { width: 6px; }
-.person-list::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 4px; }
+.person-list::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 4px; }
 
 .person-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f3f4f6;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .person-item:hover {
-  background-color: #f8fafc;
+  background-color: #f9fafb;
 }
 
-/* Item ativo - Estilo elegante com barra lateral dourada */
 .person-item.active {
   background-color: #fff;
-  border-left: 3px solid var(--accent); /* Dourado */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent); /* O toque "Gold" */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
 }
 
 .person-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.person-cpf {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Detalhes do Paciente (Direita) */
+.patient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.patient-info {
+  text-align: right;
+}
+
+.patient-info .name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.patient-info .cpf {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Inputs e Forms */
+input, select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fff;
+  width: 100%; /* Default width */
+  font-family: inherit;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.form-inline {
+  display: flex;
+  gap: 12px;
+}
+.form-inline input { flex: 1; }
+
+/* Action Bar (Barra de Vacinação) */
+.action-bar {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap; /* Permite quebrar linha se apertar */
+}
+
+.action-bar label {
   font-weight: 600;
   color: var(--primary);
-  display: block;
-  font-size: 14px;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
-.person-cpf {
-  font-size: 11px;
-  color: #888;
-  margin-top: 4px;
-  font-family: 'Roboto Mono', monospace; /* Fonte mono para números fica técnico */
+
+/* Botões */
+button {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: uppercase; /* Estilo profissional */
+  letter-spacing: 0.02em;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: var(--text-muted);
+}
+.btn-outline:hover {
+  background-color: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+}
+.btn-danger:hover {
+  background-color: #fecaca;
+}
+
+.btn-icon {
+  padding: 6px;
+  background: transparent;
+  color: #9ca3af;
+  border-radius: 4px;
+}
+.btn-icon:hover {
+  background-color: #f3f4f6;
+  color: var(--danger);
 }
 
 /* Tabela */
 .table-container {
   overflow-x: auto;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
 }
 
 th {
   text-align: left;
-  padding: 16px;
-  font-size: 11px;
-  font-weight: 700;
+  padding: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   color: var(--text-muted);
-  background-color: #f8fafc;
-  border-bottom: 1px solid var(--border);
-  letter-spacing: 1px;
+  border-bottom: 2px solid var(--border);
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 td {
-  padding: 16px;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 14px;
-  color: var(--text-main);
+  padding: 14px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9rem;
 }
 
-tr:last-child td { border-bottom: none; }
-tr:hover td { background-color: #fafbfc; }
-
-/* Formulários Inline e Action Bar */
-.action-bar {
-  background: #fff;
-  padding: 20px;
-  border-radius: var(--radius);
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 24px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+.dose-badge {
+  background: #eff6ff;
+  color: var(--primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid #dbeafe;
 }
 
-.form-inline {
+/* Empty State */
+.empty-state {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.empty-icon { font-size: 2rem; margin-bottom: 1rem; opacity: 0.5; }
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================= */
+
+@media (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 1fr; /* Vira uma coluna só */
+    gap: 20px;
+  }
+
+  .people-column {
+    height: auto;
+    max-height: 400px; /* Limita altura mas deixa rolar */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .header-actions {
+    width: 100%;
+  }
+  
+  .header-actions button {
+    flex: 1; /* Botões ocupam largura total */
+  }
+
+  .form-inline {
+    flex-direction: column;
+  }
+  
+  .form-inline button {
+    width: 100%;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .action-bar select, 
+  .action-bar input, 
+  .action-bar button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .patient-header {
+    flex-direction: column-reverse; /* Nome vai pra cima */
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .patient-info {
+    text-align: left;
+  }
 }
