@@ -11,7 +11,7 @@ export const createPerson = (person) => api.post('/person', person);
 export const deletePerson = (id) => api.delete(`/person/${id}`);
 
 export const getVaccines = () => api.get('/vaccine');
-// Função extra para cadastrar vacinas iniciais via frontend se quiser (opcional)
+// Função extra para cadastrar vacinas iniciais
 export const createVaccine = (vaccine) => api.post('/vaccine', vaccine);
 
 export const getCard = (personId) => api.get(`/vaccination/card/${personId}`);
