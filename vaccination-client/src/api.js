@@ -1,9 +1,9 @@
-﻿import axios from 'axios';
+import axios from 'axios';
 
 const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5136/api';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5136/api'
+    baseURL: baseURL
 });
 
 export const getPeople = () => api.get('/person');
