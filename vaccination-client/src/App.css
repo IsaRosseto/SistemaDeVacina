@@ -1,6 +1,6 @@
 :root {
-  --btg-blue: #001f5b;        /* Azul BTG */
-  --btg-blue-light: #152662;  /* Azul alternativo */
+  --btg-blue: #001f5b;
+  --btg-blue-light: #152662;
   --btg-silver: #e6eaf0;
   --btg-bg: #f4f6fa;
   --btg-bg-card: #ffffff;
@@ -32,20 +32,104 @@ body, #root {
   box-sizing: border-box;
 }
 
-/* Header fixo */
-header {
-  height: var(--header-height);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--btg-bg-card);
-  box-shadow: 0 2px 12px 0 rgba(0, 31, 91, 0.03);
+/* Header inspirado no BTG */
+.btg-header {
+  width: 100%;
+  background: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
-  margin-bottom: 36px;
-  border-bottom: 1px solid var(--btg-border);
+  padding: 0 40px;
+  height: 74px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  border-bottom: none;
+}
+
+.btg-logo {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #001f5b;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+.btg-logo .round {
+  display: inline-block;
+  border: 2px solid #001f5b;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 1.55rem;
+  line-height: 44px;
+  margin-right: 8px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #fff;
+  text-align: center;
+}
+.btg-logo .btg-system {
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  font-size: 1.55rem;
+  color: #001f5b;
+}
+
+.btg-header nav {
+  display: flex;
+  gap: 32px;
+  margin-left: 40px;
+}
+
+.btg-header nav a {
+  color: #001f5b;
+  font-size: 1.07rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.18s;
+  padding: 4px 8px;
+}
+.btg-header nav a:hover {
+  color: #2563eb;
+}
+
+.btg-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btg-btn {
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 26px;
+  box-shadow: 0 2px 8px 0 rgba(37, 99, 235, 0.07);
+  cursor: pointer;
+  font-size: 1.02rem;
+  transition: background 0.16s;
+}
+.btg-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.btg-link {
+  color: #001f5b;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.btg-link:hover { color: #2563eb; }
+
+/* Faixa azul escura inspirada */
+.btg-bar {
+  width: 100vw;
+  background: #071534;
+  height: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 h1 {
@@ -88,7 +172,7 @@ input, select {
   border-radius: 8px;
   font-size: 16px;
   outline: none;
-  background-color: #fff; /* maior contraste */
+  background-color: #fff;
   color: var(--btg-text-main);
   box-shadow: none;
   transition: border 0.2s, box-shadow 0.2s;
@@ -194,7 +278,7 @@ button {
 
 .person-name {
   font-weight: 600;
-  color: var(--btg-blue);
+  color: #001f5b;
 }
 .person-cpf {
   font-size: 13px;
@@ -250,10 +334,10 @@ tr:last-child td { border-bottom: none; }
 @media (max-width: 1000px) {
   .container { padding: 20px 6px; }
   .grid-layout { grid-template-columns:1fr; gap:20px;}
-  header { padding: 0 12px; }
+  .btg-header { padding: 0 12px; }
 }
 @media (max-width: 700px){
   h1{ font-size: 1.4rem; }
-  header{ flex-direction:column; height:auto; padding:10px;}
+  .btg-header { flex-direction:column; height:auto; padding:10px;}
   .card{ padding:18px 8px;}
 }
