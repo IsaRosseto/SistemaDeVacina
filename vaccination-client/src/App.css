@@ -37,11 +37,11 @@ body {
   width: 100%;
 }
 
-/* Container Responsivo Centralizado */
+/* Container Responsivo ocupa tela toda */
 .container {
   width: 100%;
-  max-width: 1400px; /* Limite máximo para telas gigantes */
-  margin: 0 auto;    /* Centraliza na tela */
+  /* max-width: 1400px; */ /* REMOVIDO para tela cheia */
+  margin: 0;
   padding: 32px 24px;
 }
 
